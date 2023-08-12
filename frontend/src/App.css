@@ -1,0 +1,153 @@
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  grid-gap: 1rem;
+}
+
+.half {
+  width: 100%;
+  /* background-color: lightgray; */
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.dropzone {
+  border: 2px dashed #888;
+  border-radius: 4px;
+  flex: 1;
+  padding: 20px;
+  text-align: center;
+  background-color: #f5f5f5;
+  cursor: pointer;
+}
+
+.dropzone p {
+  font-size: 16px;
+  margin: 0;
+  color: #555;
+}
+
+.transaction-list {
+  padding: 20px;
+  display: flex;
+  overflow-y: auto;
+}
+
+.transaction-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.transaction-list::-webkit-scrollbar-track {
+  background-color: #f5f5f5;
+}
+
+.transaction-list::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 4px;
+}
+
+.transaction-item {
+  background-color: #fff;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+
+  min-width: 350px;
+  min-height: 400px;
+
+  padding: 20px;
+  margin-bottom: 20px;
+  margin-left: 10px;
+}
+
+.transaction-item h3 {
+  margin-bottom: 5px;
+  color: #292929;
+}
+
+.transaction-item p {
+  margin: 5px 0;
+  color: #888;
+}
+
+.transaction-detail .transaction-title {
+  text-align: left;
+  font-weight: bold;
+}
+
+.transaction-title p {
+  margin: 0;
+  color: #555;
+}
+
+.transaction-detail h4 {
+  color: #333;
+}
+
+.transaction-content {
+  text-align: center;
+  margin-top: 64px;
+}
+
+.transaction-content p {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.transaction-content span {
+  font-weight: normal;
+  color: #668;
+}
+
+.transaction-values {
+  margin-top: 56px;
+}
+
+.transaction-values div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+.file-uploader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.dropzone {
+  border: 2px dashed #888;
+  border-radius: 4px;
+  padding: 20px;
+  text-align: center;
+  background-color: #f5f5f5;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.dropzone p {
+  font-size: 16px;
+  margin: 0;
+  color: #555;
+}
+
+.button {
+  background-color: #668;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
