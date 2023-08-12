@@ -1,3 +1,5 @@
+import { ButtonHTMLAttributes } from "react";
+
 export type Transaction = {
   salesman: string;
   product: string;
@@ -8,4 +10,9 @@ export type Transaction = {
 
 export type TransactionListProps = {
   transactions: Transaction[];
+};
+
+export type ButtonSubmitProps = ButtonHTMLAttributes<HTMLButtonElement> & {
+  file?: File;
+  clearFile: () => void;
 };

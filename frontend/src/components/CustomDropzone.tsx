@@ -1,32 +1,40 @@
 import { useState } from "react";
 import { useDropzone } from "react-dropzone";
 import { toast } from "react-hot-toast";
+import { CustomButtons } from "./ButtonSubmit";
 
 export function CustomDropzone() {
-  const [fileName, setFileName] = useState("");
+  const [file, setFile] = useState<File>();
 
   const { getRootProps, getInputProps } = useDropzone({
     accept: { "text/plain": [".txt"] },
-    onDrop: (acceptedFiles) => {
+    onDrop: (acceptedFiles, filesRejections) => {
       const file = acceptedFiles[0];
+
+      if (filesRejections.length) {
+        const [fileRejection] = filesRejections;
+        const { errors } = fileRejection;
+        const [error] = errors;
+
+        if (error) {
+          return toast.error(error.message);
+        }
+      }
+
       if (!file) {
         return;
       }
-      setFileName(file.name);
+      setFile(file);
       toast.success("Arquivo adicionado com sucesso");
     },
-    onDropRejected(fileRejections) {
-      if (fileRejections.length > 1) {
-        alert("Apenas um arquivo pode ser enviado por vez");
-      } else {
-        const [fileRejection] = fileRejections;
-        const { errors } = fileRejection;
-        const [error] = errors;
-        const { code } = error;
-        toast.error("Formato do Arquivo é inválido: \n" + code);
-      }
+    onError: (error) => {
+      toast.error(error.message);
     },
   });
+
+  const handleClearFile = () => {
+    setFile(undefined);
+  };
 
   return (
     <>
@@ -35,10 +43,10 @@ export function CustomDropzone() {
           <input {...getInputProps()} />
           <p>Arraste e solte arquivos .txt aqui ou clique para selecionar.</p>
         </div>
-        {fileName}
+        {file && <p>{file.name}</p>}
       </div>
 
-      <button className="button">Enviar Arquivo</button>
+      {file && <CustomButtons clearFile={handleClearFile} file={file} />}
     </>
   );
 }
