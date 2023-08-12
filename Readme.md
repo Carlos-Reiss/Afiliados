@@ -1,74 +1,75 @@
-# Projeto Filiados com Express + Frontend com Vite
+# Project Affiliates with Express + Frontend with Vite
 
-Este é um projeto que demonstra como criar uma API usando o framework Express, juntamente com um frontend utilizando o Vite. Além disso, o projeto faz uso das bibliotecas React Dropzone e React Hot Toast para implementar funcionalidades de upload de arquivo e notificações toast, respectivamente.
+This is a project responsible for attaching text files to organize transactions. It utilizes the Express framework along with a frontend built using Vite. Additionally, the project incorporates the React Dropzone and React Hot Toast libraries to implement file upload functionality and toast notifications, respectively.
 
-## Pré-requisitos
+## Prerequisites
 
-- Node.js (versão 18.16.1 ou superior)
-- npm (ou yarn)
+- Node.js (version 18.16.1 or higher)
+- npm (or yarn)
 
-## Configuração
+## Setup
 
 ### API (Express + TypeScript)
 
-1. Navegue até a pasta `api`:
+1. Navigate to the `api` folder:
 
 ```bash
 cd api
 ```
 
-2. Instale as dependências:
+2. Install the dependencies:
 
 ```bash
-npm ou yarn install
+npm install or yarn install
 ```
-3. Suba uma instância do banco para utilização com docker
+
+3. Start a database instance using Docker for usage:
 
 ```bash
 docker-compose -f docker/docker-compose.yml up -d
 ```
 
-4. Inicie o servidor da API:
+4. Start the API server:
 
 ```bash
-npm ou yarn dev
+npm run dev or yarn dev
 ```
 
-A API estará disponível em http://localhost:3030.
+The API will be available at http://localhost:3030.
 
 ### Frontend (Vite + React)
 
-1. Navegue até a pasta `frontend`:
+1. Navigate to the `frontend` folder:
 
 ```bash
 cd frontend
 ```
 
-2. Instale as dependências:
+2. Install the dependencies:
 
 ```bash
-npm ou yarn install
+npm install or yarn install
 ```
 
-3. Inicie o servidor de desenvolvimento:
+3. Start the development server:
 
 ```bash
-npm run dev ou yarn dev
+npm run dev or yarn dev
 ```
 
-O frontend estará disponível em http://localhost:3000.
+The frontend will be accessible at http://localhost:3000.
 
-## Funcionalidades
+## Features
 
-### Upload de Arquivo com React Dropzone
+### File Upload with React Dropzone
 
-A funcionalidade de upload de arquivo é implementada usando a biblioteca React Dropzone. O componente `CustomDropzone` no frontend é responsável por renderizar o Dropzone e lidar com o envio de arquivos para a API.
+The file upload functionality is implemented using the React Dropzone library. The `CustomDropzone` component in the frontend is responsible for rendering the Dropzone and handling file uploads to the API.
 
-### Notificações Toast com React Hot Toast
+### Toast Notifications with React Hot Toast
 
-As notificações toast são implementadas usando a biblioteca React Hot Toast. É utilizado para mostrar notificações amigáveis ao usuário sempre que uma ação é executada com sucesso ou ocorre um erro.
+Toast notifications are implemented using the React Hot Toast library. It is used to display user-friendly notifications whenever an action is successfully executed or an error occurs.
 
-## Estrutura do Projeto
+## Project Structure
 
 ```
 packages
@@ -95,8 +96,8 @@ packages
 └── README.md
 ```
 
-## Contribuição
+## Contribution
 
-Se você quiser contribuir com melhorias neste projeto, fique à vontade para fazer um fork e enviar um pull request. Vamos adorar receber feedback e sugestões!
+If you'd like to contribute improvements to this project, feel free to fork it and send a pull request. We'd love to receive feedback and suggestions!
 
 ---
