@@ -24,6 +24,22 @@ describe("GET /transactions", () => {
         type: TransactionType.SALE_AFFILIATE,
         value: new Decimal(100),
       },
+      {
+        id: "mockUUid",
+        date: new Date(),
+        product: "mockProduct",
+        salesman: "mockSalesman",
+        type: TransactionType.COMMISSION_RECEIVED,
+        value: new Decimal(40),
+      },
+      {
+        id: "mockUUid",
+        date: new Date(),
+        product: "mockProduct",
+        salesman: "mockSalesman",
+        type: TransactionType.COMMISSION_PAID,
+        value: new Decimal(10),
+      },
     ];
 
     prismaMock.transactions.findMany.mockResolvedValue(transactions);
@@ -33,7 +49,10 @@ describe("GET /transactions", () => {
     expect(response.status).toBe(200);
     expect(prismaMock.transactions.findMany).toBeCalledTimes(1);
     expect(prismaMock.transactions.findMany).toBeCalledWith({});
-    expect(response.body[0].id).toEqual("mockUUid");
-    expect(response.body[0].date).toEqual(transactions[0].date.toISOString());
+    expect(response.body[0].salesman).toEqual("mockSalesman");
+    expect(response.body[0].product).toEqual("mockProduct");
+    expect(response.body[0].totalSales).toEqual("100.00");
+    expect(response.body[0].totalCommissions).toEqual("40.00");
+    expect(response.body[0].totalCommissionsPaid).toEqual("10.00");
   }, 20000);
 });
