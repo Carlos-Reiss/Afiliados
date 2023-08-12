@@ -1,15 +1,8 @@
-import { TransactionType } from "@prisma/client";
 import { Decimal } from "@prisma/client/runtime/library";
 import { Request, Response } from "express";
-import { readFileSync } from "fs";
+import { readFileSync, unlinkSync } from "fs";
 import prisma from "../../common/prisma-client";
-
-const TRANSACTION_TYPE = {
-  1: TransactionType.SALE_PRODUCER,
-  2: TransactionType.SALE_AFFILIATE,
-  3: TransactionType.COMMISSION_PAID,
-  4: TransactionType.COMMISSION_RECEIVED,
-};
+import { TRANSACTION_TYPE } from "../../utils/transaction-type";
 
 export const uploadTransactionsService = async (
   request: Request,
@@ -19,6 +12,7 @@ export const uploadTransactionsService = async (
   if (!file) return response.status(400).json({ message: "file not found" });
 
   if (file.mimetype !== "text/plain") {
+    unlinkSync(`uploads/${file.filename}`);
     return response.status(400).json({ message: "invalid file type" });
   }
 
@@ -46,10 +40,9 @@ export const uploadTransactionsService = async (
       skipDuplicates: true,
     });
 
-    return response
-      .status(200)
-      .json({ message: "upload success.", transactions });
+    return response.status(200).json({ message: "upload success." });
   } catch (error) {
+    unlinkSync(`uploads/${file.filename}`);
     return response
       .status(400)
       .json({ message: `Erro ao ler o arquivo: ${error}` });
