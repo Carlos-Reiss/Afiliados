@@ -2,6 +2,8 @@
 
 This is a project responsible for attaching text files to organize transactions. It utilizes the Express framework along with a frontend built using Vite. Additionally, the project incorporates the React Dropzone and React Hot Toast libraries to implement file upload functionality and toast notifications, respectively.
 
+Presentation links: [Vídeo 1](https://www.loom.com/embed/ca2c6a7975634c32b63fb781add3dfd9) [Vídeo 2](https://www.loom.com/share/3d0f8df6c1fe493f86a261557d57f26d)
+
 ## Prerequisites
 
 - Node.js (version 18.16.1 or higher)
